@@ -32,7 +32,7 @@ outputs:
     description: 'The time we greeted you'
 runs:
   using: 'docker'
-  image: 'Dockerfile'
+  image: 'DockerFile'
   args:
     - ${{ inputs.workspace }}
     - ${{ inputs.aws_default_region }}
