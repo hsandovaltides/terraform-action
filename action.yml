@@ -1,0 +1,42 @@
+# action.yml
+name: 'Hello World'
+description: 'Greet someone and record the time'
+inputs:
+  
+  workspace:  # id of input
+    description: 'Execution Workspace'
+    default: ''
+
+  aws_default_region: 
+    required: false
+    default: "us-east-1"
+  
+  aws_access_key_id: 
+    required: false
+    default: ""
+
+  aws_secret_access_key: 
+    required: false
+    default: ""
+
+  aws_certificate: 
+    required: false
+    default: ""
+
+  aws_zone: 
+    required: false
+    default: ""
+
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.workspace }}
+    - ${{ inputs.aws_default_region }}
+    - ${{ inputs.aws_access_key_id }}
+    - ${{ inputs.aws_secret_access_key }}
+    - ${{ inputs.aws_certificate }}
+    - ${{ inputs.aws_zone }}
